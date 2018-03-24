@@ -56,7 +56,7 @@ In this project , We will issue an erc20 token.
 
  在项目中实现了基本的erc20的例子,包括智能合约的实现和java代码的实现.
 
- 为了方便查看与调用，在项目中配置swagger界面。
+ 为了方便查看与调用，在项目中配置swagger界面。http://localhost:8080/swagger-ui.html
 ![Screenshot from 2018-03-24 10-14-50.png](https://upload-images.jianshu.io/upload_images/6907217-466d0aeaf7b099c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
  在swagger-ui中调用相应的接口,可以在rinkeby testnet上查看到交易细节.
