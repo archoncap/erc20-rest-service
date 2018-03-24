@@ -1,96 +1,61 @@
-# ERC-20 RESTful service
+# erc20-rest-service
 
-This application provides a RESTful service for creating and managing 
-[ERC-20 tokens](https://github.com/ethereum/EIPs/issues/20). 
-It has been built using [Spring Boot](https://projects.spring.io/spring-boot/), and 
-[web3j](https://web3j.io).
+This is a sample ethereum starter project.
 
-It works with both [Geth](https://github.com/ethereum/go-ethereum), 
-[Parity](https://github.com/paritytech/parity), and 
-[Quorum](https://github.com/jpmorganchase/quorum).
+In this project , We will issue an erc20 token.
 
-For Quorum, the RESTful semantics are identical, with the exception that if you wish to create 
-a private transaction, you populate a HTTP header name *privateFor* with a comma-separated
-list of public keys
+### architecture
 
+开发架构层次如下图:
 
-## Build
+![Screenshot from 2018-03-23 18-43-22.png](https://upload-images.jianshu.io/upload_images/6907217-20688aae29e9cb5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+在上图中，用颜色标记出来的区域是需要进行相应的开发实现。主要包括两个部分：
+- 智能合约的开发和测试，需要编写的文件有contract和test文件。
+- - java的整合智能合约层，需要编写的文件有service和controller以及ethereum connector层。
 
-To build a runnable jar file:
+上图中的灰色部分是暂时为理解其原理的部分.
+-
+- ### 智能合约层
+- 负责实现相应的智能合约业务，编写测试实例。
+-
+- 在开发中基于ganache进行开发调试，需要智能合约的开发者具有较好的js基础。
+-
+- 在编写智能合约的过程中，需要熟练contract和test的语法。
+-
+-
+- ### 整合智能合约层
+-
+- 从图中可以看出，整合智能合约层主要分为三个部分：
+- - 自动生成的智能合约，通过web3命令行工具可以将solidity的智能合约自动转换（auto-generated）为java的智能合约，并提供deploy和call等函数。
+- - web3j的connector。通过web3j实现了与智能合约的连接，包括整合web3j实现与以太坊网络的通信，部署智能合约和智能合约内部函数的调用。
+- - controller和service层的实现。作为智能合约和前端的桥接。
+-
+- 为了加快开发，这个项目引用了infura来实现智能合约快速在rinkeby部署和调用。
+-
+开发结束后,可以在https://www.rinkeby.io/#explorer查看相应的交易细节.
+-
+-
+-
+- ### 项目依赖
+- - Python 3.5+ 
+- - solc(ubuntu下通过apt-get install安装，非npm包管理安装)
+- - web3（需要写入到系统环境变量中，负责自动生成java智能合约代码和提供api调用）
 
-```bash
-./gradlew clean build
-```
-
-## Run
-
-Using Java 1.8+:
-
-```bash
-java -jar build/libs/azure-demo-0.1.jar 
-```
-
-By default the application will log to a file named erc20-web3j.log. 
-
-
-## Configuration
-
-The following default properties are used in the application:
-
-```properties
-# Port for service to bind to
-port=8080
-# Log file path and name
-logging.file=logs/erc20-rest-service.log
-
-# Endpoint of an Ethereum or Quorum node we wish to use. 
-# To use IPC simply provide a file path to the socket, such as /path/to/geth.ipc
-nodeEndpoint=http://localhost:22000
-# The Ethereum or Quorum address we wish to use when transacting.
-# Note - this address must be already unlocked in the client
-fromAddress=0xed9d02e382b34818e88b88a309c7fe71e65f419d
-```
-
-You can override any of these properties by creating a file name 
-*application.properties* in the root directory of your application, or in 
-*config/application.properties* relative to your root. If you'd rather use yaml, 
-simply change the filename to *application.yml*.
-
-
-## Usage
-
-All available application endpoints are documented using [Swagger](http://swagger.io/).
-
-You can view the Swagger UI at http://localhost:8080/swagger-ui.html. From here you
-can perform all POST and GET requests easily to facilitate deployment of, transacting 
-with, and querying state of ERC-20 tokens.
-
-![alt text](https://github.com/blk-io/erc20-rest-service/raw/master/images/full-swagger-ui.png "Swagger UI screen capture")
-
-
-## Docker
-
-We can use [Docker](https://www.docker.com/) to easily spin up a arbritrary instance 
-of our service connecting to an already running Ethereum or Quorum network.
-
-All you need to do is build the Dockerfile:
-
-```docker
-docker build -f docker/Dockerfile -t blk-io/erc20-service .
-```
-
-Then either run it with default configuration:
-```docker
-docker run -p 8080:8080 -v "$PWD/logs":/logs blk-io/erc20-service
-```
- 
-Or with a custom configuration:
-
-```docker
-export PORT=8081
-docker run -p ${PORT}:${PORT} -v "$PWD/logs":/logs \
-    -e ENDPOINT="http://localhost:22001" \
-    -e FROMADDR="0xca843569e3427144cead5e4d5999a3d0ccf92b8e" \
-    -e PORT="$PORT" \
-    blk-io/erc20-service
-```
+- ### 项目目录
+- 项目导入intellij后可以立即运行，并暴露出8080端口提供restful api供数据访问。
+-
+- 项目src下面主要包括两个重要的文件夹,其中
+- - resource/contract 是存放智能合约与相应测试的文件夹，使用truffle进行编写。
+- - main 下存放着相应的java代码。
+-
+- 附件中主要重要的脚本：
+- - generate.sh 自动生成智能合约的Bin和abi的文件,以及在指定目录生成智能合约的相应代码.
+-
+- ### 功能模块设计
+-
+- 在项目中实现了基本的erc20的例子,包括智能合约的实现和java代码的实现.
+-
+- 为了方便查看，在项目中配置swagger界面。
+- ![Screenshot from 2018-03-24 10-14-50.png](https://upload-images.jianshu.io/upload_images/6907217-466d0aeaf7b099c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+-
+- 在swagger-ui中调用相应的接口,可以在rinkeby testnet上查看到交易细节.
