@@ -39,7 +39,7 @@ public class ContractService {
 
     private final Web3j web3j;
 
-    private Credentials credentials;
+    private final Credentials credentials;
 
 
     private static final Logger log = LoggerFactory.getLogger(ContractService.class);
