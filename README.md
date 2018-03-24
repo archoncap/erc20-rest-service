@@ -8,7 +8,7 @@ In this project , We will issue an erc20 token.
 
 ### architecture
 
-开发架构层次如下图:
+开发架构层次初步设计如下图:
 
 Picture1:
 
