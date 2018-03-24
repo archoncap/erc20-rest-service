@@ -9,9 +9,6 @@ In this project , We will issue an erc20 token.
 ### architecture
 
 开发架构层次如下图:
-Picture0:
-
-![web3j_network.png](https://upload-images.jianshu.io/upload_images/6907217-630e198e5cd531e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Picture1:
 
