@@ -9,8 +9,16 @@ In this project , We will issue an erc20 token.
 ### architecture
 
 开发架构层次如下图:
+Picture0:
+
+![web3j_network.png](https://upload-images.jianshu.io/upload_images/6907217-630e198e5cd531e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+Picture1:
 
 ![Screenshot from 2018-03-23 18-43-22.png](https://upload-images.jianshu.io/upload_images/6907217-20688aae29e9cb5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+
 
 在上图中，用颜色标记出来的区域是需要进行相应的开发实现。主要包括两个部分：
 - 智能合约的开发和测试，需要编写的文件有contract和test文件。

@@ -2,7 +2,6 @@ package io.blk.erc20;
 
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Function;
@@ -11,8 +10,6 @@ import io.blk.erc20.Response.ApprovalEventResponse;
 import io.blk.erc20.Response.TransactionResponse;
 import io.blk.erc20.Response.TransferEventResponse;
 import io.blk.erc20.generated.HumanStandardToken;
-import lombok.Getter;
-import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +58,6 @@ public class ContractService {
     public String deploy(BigInteger initialAmount, String tokenName, BigInteger decimalUnits,
             String tokenSymbol) throws Exception {
         try {
-
             HumanStandardToken humanStandardToken = HumanStandardToken.deploy(
                     web3j, credentials,
                     ManagedTransaction.GAS_PRICE, Contract.GAS_LIMIT,
