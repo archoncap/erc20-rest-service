@@ -60,3 +60,6 @@ In this project , We will issue an erc20 token.
 ![Screenshot from 2018-03-24 10-14-50.png](https://upload-images.jianshu.io/upload_images/6907217-466d0aeaf7b099c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
  在swagger-ui中调用相应的接口,可以在rinkeby testnet上查看到交易细节.
+ 
+ 如图所示,我们在rinkeby发行了名为WEBBSHI的代币
+ ![Screenshot from 2018-03-24 10-36-24.png](https://upload-images.jianshu.io/upload_images/6907217-b2b009d174c7004f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
