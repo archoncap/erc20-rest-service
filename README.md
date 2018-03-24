@@ -39,7 +39,6 @@ In this project , We will issue an erc20 token.
 
 
  ### 项目依赖
- - Python 3.5+ 
  - solc(ubuntu下通过apt-get install安装，非npm包管理安装)
  - web3（需要写入到系统环境变量中，负责自动生成java智能合约代码和提供api调用）
 
