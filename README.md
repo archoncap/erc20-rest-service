@@ -1,10 +1,12 @@
 # erc20-rest-service
 
+
 This is a sample ethereum starter project.
 
 In this project , We will issue an erc20 token.
 
 ### architecture
+
 
 开发架构层次如下图:
 
@@ -63,3 +65,10 @@ In this project , We will issue an erc20 token.
  
  如图所示,我们在rinkeby发行了名为WEBBSHI的代币
  ![Screenshot from 2018-03-24 10-36-24.png](https://upload-images.jianshu.io/upload_images/6907217-b2b009d174c7004f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+### 智能合约学习案例
+在代码中,在resource/solidity内置了三个不错的学习案例,分别为:
+- HumanToken
+- BitDegreeToken&CrowdSale   真实发币案例
+- zeppelin-solidity          非常多的社区认可的安全的solidity智能合约案例,涵盖代币,监管等等.
