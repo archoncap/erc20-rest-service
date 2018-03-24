@@ -1,12 +1,12 @@
 # erc20-rest-service
 
 
+
 This is a sample ethereum starter project.
 
 In this project , We will issue an erc20 token.
 
 ### architecture
-
 
 开发架构层次如下图:
 
@@ -14,7 +14,7 @@ In this project , We will issue an erc20 token.
 
 在上图中，用颜色标记出来的区域是需要进行相应的开发实现。主要包括两个部分：
 - 智能合约的开发和测试，需要编写的文件有contract和test文件。
-- java的整合智能合约层，需要编写的文件有service和controller以及ethereum connector层。
+- java的整合智能合约层，需要编写的文件有service和controller层。
 
  上图中的灰色部分是暂时为理解其原理的部分.
  
@@ -35,7 +35,7 @@ In this project , We will issue an erc20 token.
 
  为了加快开发，这个项目引用了infura来实现智能合约快速在rinkeby部署和调用。
 
-开发结束后,可以在https://www.rinkeby.io/#explorer查看相应的交易细节.
+开发结束后,可以在https://www.rinkeby.io/#explorer  查看相应的交易细节.
 
 
  ### 项目依赖
