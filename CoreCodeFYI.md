@@ -145,6 +145,11 @@ rxjava和lambda表达式结合,可以写出非常优雅的异步通信例子.
 
 另外在web3的代码实现中,使用了大量的泛型类/泛型接口/泛型方法.项目代码比较优雅.
 
+web3 UML Architecture:
+![Screenshot from 2018-03-25 22-10-33.png](https://upload-images.jianshu.io/upload_images/6907217-67186a04adbfa055.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+
 ### solidity编写的智能合约
 
 在这一小部分中,针对zeppelin中的某一个智能合约,接住UML工具,分析其代码.
