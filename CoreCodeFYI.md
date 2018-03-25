@@ -1,11 +1,15 @@
 # 关键代码说明
 
 
+
 这篇文档讲主要说明在erc20-rest-service中比较关键核心的代码,分别是
 - 生成的智能合约及web3j.
 - solidity编写的智能合约.
 
 ### 生成的智能合约及web3j
+
+
+
 
 
 生成的智能合约及web3j主要针对以下几个部分展开:
@@ -149,3 +153,23 @@ rxjava和lambda表达式结合,可以写出非常优雅的异步通信例子.
 另外在web3的代码实现中,使用了大量的泛型类/泛型接口/泛型方法.项目代码比较优雅.
 
 ### solidity编写的智能合约
+
+在这一小部分中,针对zeppelin中的某一个智能合约,接住UML工具,分析其代码.
+
+
+
+BurnalbeToken UML图如下:
+![Screenshot from 2018-03-25 16-36-24.png](https://upload-images.jianshu.io/upload_images/6907217-7385c0b3a8ab12ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+可以看到 BurnableToken没有实现完整的ERC20协议.
+
+
+MintableToken:可以定量增发的Token.
+
+UML图如下:
+
+![Screenshot from 2018-03-25 17-03-28.png](https://upload-images.jianshu.io/upload_images/6907217-a5caa7e5957305dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+MintableToken 图中可以看出,还是缺少一些属性.
