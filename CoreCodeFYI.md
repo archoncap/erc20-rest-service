@@ -1,15 +1,9 @@
 # 关键代码说明
-
-
-
 这篇文档讲主要说明在erc20-rest-service中比较关键核心的代码,分别是
 - 生成的智能合约及web3j.
 - solidity编写的智能合约.
 
 ### 生成的智能合约及web3j
-
-
-
 
 
 生成的智能合约及web3j主要针对以下几个部分展开:
@@ -172,4 +166,22 @@ UML图如下:
 ![Screenshot from 2018-03-25 17-03-28.png](https://upload-images.jianshu.io/upload_images/6907217-a5caa7e5957305dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-MintableToken 图中可以看出,还是缺少一些属性.
+MintableToken 图中可以看出,还是缺少一些属性.这些属性需要在自己的智能合约中补充.
+
+Zepelin 在线api文档
+
+https://openzeppelin.org/api/docs/Bounty.html
+
+
+BitDegreeToken是一个非常好的例子.
+
+BitDegreeToken 使用了ZepplinToken,并添加了自己的属性.
+
+
+
+
+### 接下去的工作
+
+- 主要明白智能合约的语法,以及完全读懂BitDegreeToken和ZepplinToken的代码.
+- 研究部署后的智能合约和交易所对接
+- 思考双币的技术架构设计.
