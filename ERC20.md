@@ -2,6 +2,7 @@
 在https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md   查看ERC20代币的标准API。
 
 ### Method
+
 在Method目录下面我们可以看到一些方法，所有的ERC20代币都是按照下面这些方法来定义的。下面我们讲解一下每个方法的作用。
 
 ##### 1.name
@@ -183,6 +184,8 @@ contract MyToken is ERC20 {
 
 智能合约和java代码有点不同的是public写在后面。
 
+
+当function中带有public constant时,返回的是具体的数值,对于交易transfer和approve transferFrom没有public constant参数.
 
 ### 总结
 
