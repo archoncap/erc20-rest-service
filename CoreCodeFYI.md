@@ -1,11 +1,10 @@
 # 关键代码说明
+
 这篇文档讲主要说明在erc20-rest-service中比较关键核心的代码,分别是
 - 生成的智能合约及web3j.
 - solidity编写的智能合约.
 
 ### 生成的智能合约及web3j
-
-
 生成的智能合约及web3j主要针对以下几个部分展开:
 - RemoteCall 函数调用方式
 - 基于RxJava的异步消息通信事件机制
@@ -182,6 +181,6 @@ BitDegreeToken 使用了ZepplinToken,并添加了自己的属性.
 
 ### 接下去的工作
 
-- 主要明白智能合约的语法,以及完全读懂BitDegreeToken和ZepplinToken的代码.
+- 主要明白智能合约的语法http://solidity.readthedocs.io/en/v0.4.21/abi-spec.html#function-selector ,以及完全读懂BitDegreeToken和ZepplinToken的代码.
 - 研究部署后的智能合约和交易所对接
 - 思考双币的技术架构设计.
