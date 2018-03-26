@@ -300,11 +300,10 @@ solidity 中存在这两种函数调用(internal类型不创建确切的EVM调�
 
 Functions可以指定为external,public,internal和private,默认public.对于state variable,external不支持,默认为internal.
 
-external:
-external 函数是一部分智能合约的接口,表明他们可以被其他的智能合约和外部的交易调用.一个external函数f不能够从内部调用.当接受大量数据数组时,外部函数更高效一些.
-public:public只能被内部调用也可以通过消息调用.对于public state变量,会自动生成getter函数.
-internal:内部函数和变量智能内部访问(当前智能合约以及继承当前智能合约的智能合约)
-private: private只能被内部调用(当前智能合约可行,继承当前智能合约的应用不可行)
+- external:external 函数是一部分智能合约的接口,表明他们可以被其他的智能合约和外部的交易调用.一个external函数f不能够从内部调用.当接受大量数据数组时,外部函数更高效一些.
+- public:public只能被内部调用也可以通过消息调用.对于public state变量,会自动生成getter函数.
+- internal:内部函数和变量智能内部访问(当前智能合约以及继承当前智能合约的智能合约)
+- private:private只能被内部调用(当前智能合约可行,继承当前智能合约的应用不可行)
 
 ##### Getter
 
