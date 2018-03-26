@@ -268,3 +268,84 @@ function f(uint start, uint daysAfter) public {
 ```
 Do not rely on block.timestamp, now and block.blockhash as a source of randomness, unless you know what you are doing.
 ```
+
+
+### Visibility and Getters
+
+关于Visibility和Getter的英文官方文档:
+
+http://solidity.readthedocs.io/en/v0.4.21/contracts.html#visibility-and-getters
+
+对于function而言,有四种Visibility(可见性)变量,对于state variable而言,有三种Visibility(可见性)变量.
+##### Visibility
+
+```
+Since Solidity knows two kinds of function calls (internal ones that do not create an actual EVM call (also called a “message call”) and external ones that do), there are four types of visibilities for functions and state variables.
+
+Functions can be specified as being external, public, internal or private, where the default is public. For state variables, external is not possible and the default is internal.
+
+external:
+External functions are part of the contract interface, which means they can be called from other contracts and via transactions. An external function f cannot be called internally . External functions are sometimes more efficient when they receive large arrays of data.
+public:
+Public functions are part of the contract interface and can be either called internally or via messages. For public state variables, an automatic getter function (see below) is generated.
+internal:
+Those functions and state variables can only be accessed internally (i.e. from within the current contract or contracts deriving from it), without using this.
+private:
+Private functions and state variables are only visible for the contract they are defined in and not in derived contracts.
+```
+翻译:
+solidity 中存在这两种函数调用(internal类型不创建确切的EVM调用,同样被成为"message call"消息调用),external创建确切的EVM调用.
+
+在Ethereum中,针对函数存在着四种Visibility(可见性)限定,针对state变量存在这三种Visibility(可见性)限定.
+
+Functions可以指定为external,public,internal和private,默认public.对于state variable,external不支持,默认为internal.
+
+external:
+external 函数是一部分智能合约的接口,表明他们可以被其他的智能合约和外部的交易调用.一个external函数f不能够从内部调用.当接受大量数据数组时,外部函数更高效一些.
+public:public只能被内部调用也可以通过消息调用.对于public state变量,会自动生成getter函数.
+internal:内部函数和变量智能内部访问(当前智能合约以及继承当前智能合约的智能合约)
+private: private只能被内部调用(当前智能合约可行,继承当前智能合约的应用不可行)
+
+##### Getter
+
+The compiler automatically creates getter functions for all public state variables. For the contract given below, the compiler will generate a function called data that does not take any arguments and returns a uint,
+```
+pragma solidity ^0.4.0;
+
+contract C {
+    uint public data = 42;
+}
+
+contract Caller {
+    C c = new C();
+    function f() public {
+        uint local = c.data();
+    }
+}
+```
+The getter functions have external visibility. 
+
+```
+pragma solidity ^0.4.0;
+
+contract Complex {
+    struct Data {
+        uint a;
+        bytes3 b;
+        mapping (uint => uint) map;
+    }
+    mapping (uint => mapping(bool => Data[])) public data;
+}
+```
+The Auto-generated code is below:
+```
+function data(uint arg1, bool arg2, uint arg3) public returns (uint a, bytes3 b) {
+    a = data[arg1][arg2][arg3].a;
+    b = data[arg1][arg2][arg3].b;
+}
+
+```
+
+编译器自动为所有的public state variable生成getter函数,例子如上.
+
+getter函数具有external属性.
