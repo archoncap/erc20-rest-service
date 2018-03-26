@@ -1,4 +1,4 @@
-# solidity-language
+# solidity-language 类型系统,单位和全局变量
 
 本文档主要说明solidity一些比较复杂的语法
 
@@ -215,4 +215,4 @@ function returnTrue() public pure returns(bool response) {
 - view 表明这个函数的执行不会改变storage的状态.
 - Pure 具有更强的限制意义,表明这个函数的执行甚至不会读取storage的状态.
 
-最后罗列了一个Pure函数的使用.
+最后在上面罗列了一个Pure函数的使用.
