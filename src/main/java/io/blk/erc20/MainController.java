@@ -28,12 +28,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Api("ERC-20 token standard API")
 @RestController
-public class Controller {
+public class MainController {
 
     private final ContractService ContractService;
 
     @Autowired
-    public Controller(ContractService ContractService) {
+    public MainController(ContractService ContractService) {
         this.ContractService = ContractService;
     }
 
