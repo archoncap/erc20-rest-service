@@ -244,6 +244,8 @@ amount为该分红周期的分红池内的收益,具体含义为第一个五天�
 
 
 ### 智能合约的升级
-interface的意义.https://medium.com/@nrchandan/interfaces-make-your-solidity-contracts-upgradeable-74cd1646a717
+关于interface一篇非常不错的文章:https://medium.com/@nrchandan/interfaces-make-your-solidity-contracts-upgradeable-74cd1646a717
+
 
 另外interface提供了一种便捷升级的方式.(升级需要考虑的一个问题是智能合约的数据如何迁移?新的智能合约需要兼容旧的智能合约)
+
